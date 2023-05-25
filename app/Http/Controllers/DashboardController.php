@@ -12,9 +12,15 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $response = Http::withOptions(['verify' => false])->get('https://quirky-mahavira.217-76-154-49.plesk.page/api/products');
+        $response = Http::withOptions(['verify' => false])->get('https://quirky-mahavira.217-76-154-49.plesk.page/api/productos');
             $data = $response->json()['data'];
-            return view('dashboard', compact('data'));
+
+            if(!$data){
+                
+            }else{
+                return view('dashboard', compact('data'));
+            }
+            
     }
 
     /**
